@@ -16,10 +16,19 @@ def init_routes(app):
 
 
 
-    @app.route('/add', methods=['POST'])
+    @app.route('/add', methods=['GET'])
     def create_item():
-        # This route should handle adding a new item to the database.
-        return render_template('index.html', message='Item added successfully')
+        if request.method == 'POST':
+        new_bike = Bike(
+            brand=request.form['brand'],
+            modle=request.form['modle'],
+            cc=int(request.form['cc']),
+            rating=float(request.form['rating'])
+        )
+        db.session.add(new_bike)
+        db.session.commit()
+        return redirect(url_for('index'))
+        return render_template('add.html', message='Item added successfully')
 
 
 

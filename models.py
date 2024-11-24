@@ -4,12 +4,12 @@ db = SQLAlchemy()
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    brand = db.Column(db.String(50), nullable=False)
-    model = db.Column(db.Text)
-    cc = db.Column(db.Date, nullable=False)
-    fuel_capacity = db.Column(db.Integer, nullable=False)
-    engine_type = db.Column(db.Boolean, default=False)
-    seat_height = db.Column(db.intiger, default=datetime.utcnow)
+    brand = db.Column(db.String(100), nullable=False)
+    model = db.Column(db.String(100), nullable=False)
+    cc = db.Column(db.Integer)
+    fuel_capacity = db.Column(db.Integer)
+    engine_type = db.Column(db.String(100))
+    seat_height = db.Column(db.Integer)
 
     def __repr__(self):
         return f'<Task {self.title}>'
