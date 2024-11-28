@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Task(db.Model):
+class Bike(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     brand = db.Column(db.String(100), nullable=False)
     model = db.Column(db.String(100), nullable=False)
@@ -12,4 +12,4 @@ class Task(db.Model):
     seat_height = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'<Task {self.title}>'
+        return f'<Task {self.brand}>'

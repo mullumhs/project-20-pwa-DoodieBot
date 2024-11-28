@@ -4,5 +4,6 @@
 <h1>Welcome to My Inventory App</h1>
 
 <!-- Add your page-specific content here -->
-
-{% endblock %}
+{% for bike in bikes %}
+<p>{{ bike.brand }}</p>
+{% endfor %} {% endblock %}

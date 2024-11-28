@@ -3,6 +3,92 @@
 
 <h1>ADD</h1>
 
-<!-- Add your page-specific content here -->
+<div class="container px-5 my-5">
+  <form id="contactForm" method="POST" action="/add">
+    <div class="form-floating mb-3">
+      <select class="form-select" id="brand" name="brand" aria-label="Brand">
+        <option value="select">select</option>
+        <option value="Honda">Honda</option>
+        <option value="Yamaha">Yamaha</option>
+        <option value="Suzuki">Suzuki</option>
+        <option value="Kawasaki">Kawasaki</option>
+        <option value="KTM">KTM</option>
+      </select>
+      <label for="brand">Brand</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="model"
+        type="text"
+        placeholder="Make E.G CRF"
+        name="model"
+      />
+      <label for="model">Make E.G CRF</label>
+      <div class="invalid-feedback">Make E.G CRF is required.</div>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="cc"
+        type="text"
+        placeholder="Engine Displacement (cc)"
+        name="cc"
+      />
+      <label for="cc">Engine Displacement (cc)</label>
+      <div
+        class="invalid-feedback"
+        data-sb-feedback="engineDisplacementCc:required"
+      >
+        Engine Displacement (cc) is required.
+      </div>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="fuel_capacity"
+        type="text"
+        placeholder="Fuel Capacity (L)"
+        name="fuel_capacity"
+      />
+      <label for="fuel_capacity">Fuel Capacity (L)</label>
+      <div class="invalid-feedback" data-sb-feedback="fuelCapacityL:required">
+        Fuel Capacity (L) is required.
+      </div>
+    </div>
+    <div class="form-floating mb-3">
+      <select
+        class="form-select"
+        id="engine_type"
+        aria-label="Engine Type"
+        name="engine_type"
+      >
+        <option value="select">select</option>
+        <option value="4 Stroke">4 Stroke</option>
+        <option value="2 Stroke">2 Stroke</option>
+        <option value="Electric">Electric</option>
+      </select>
+      <label for="engine_type">Engine Type</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        class="form-control"
+        id="seat_height"
+        type="text"
+        placeholder="Seat Height (cm)"
+        name="seat_height"
+      />
+      <label for="seat_height">Seat Height (cm)</label>
+      <div class="invalid-feedback" data-sb-feedback="seatHeightCm:required">
+        Seat Height (cm) is required.
+      </div>
+    </div>
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg" id="submitButton" type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
 
 {% endblock %}
