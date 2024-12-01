@@ -36,10 +36,22 @@ def init_routes(app):
 
 
 
-    @app.route('/update', methods=['POST'])
-    def update_item():
-        # This route should handle updating an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item updated successfully')
+    @app.route('/edit', methods=['GET','POST'])
+    def edit():
+        
+        if request.method == 'POST':
+     #       brand=request.form['brand'],
+      #          model=request.form['model'],
+       #         cc=int(request.form['cc']),
+        #        fuel_capacity=int(request.form['fuel_capacity']),
+         #       engine_type=request.form['engine_type'],
+          #      seat_height=request.form['seat_height']
+        #db.session.commit()
+            return redirect(url_for('index'))
+        else:
+            id = request.args.get('id', '')
+            bike = Bike.query.get_or_404(id)
+            return render_template('edit.html', bike = bike)
 
 
 
