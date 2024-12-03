@@ -47,11 +47,11 @@ def init_routes(app):
          #       engine_type=request.form['engine_type'],
           #      seat_height=request.form['seat_height']
         #db.session.commit()
-            return redirect(url_for('index'))
-        else:
-            id = request.args.get('id', '')
-            bike = Bike.query.get_or_404(id)
-            return render_template('edit.html', bike = bike)
+            return redirect(url_for('get_items'))
+       
+        id = request.args.get("id")
+        bike = db.get_or_404(Bike, id)
+        return render_template('edit.html', bike = bike)
 
 
 
