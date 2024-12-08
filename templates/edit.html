@@ -5,9 +5,10 @@
 
 <div class="container px-5 my-5">
   <form id="contactForm" method="POST" action="/edit">
+    <input type="hidden" value="{{bike.id}}" name="id" />
     <div class="form-floating mb-3">
       <select class="form-select" id="brand" name="brand" aria-label="Brand">
-        <option value="{{bike.brand}}">"{{bike.brand}}"</option>
+        <option value="{{bike.brand}}">{{bike.brand}}</option>
         <option value="select">select</option>
         <option value="Honda">Honda</option>
         <option value="Yamaha">Yamaha</option>

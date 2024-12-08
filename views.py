@@ -38,26 +38,39 @@ def init_routes(app):
 
     @app.route('/edit', methods=['GET','POST'])
     def edit():
+
+        
         
         if request.method == 'POST':
-     #       brand=request.form['brand'],
-      #          model=request.form['model'],
-       #         cc=int(request.form['cc']),
-        #        fuel_capacity=int(request.form['fuel_capacity']),
-         #       engine_type=request.form['engine_type'],
-          #      seat_height=request.form['seat_height']
-        #db.session.commit()
+            id = request.form['id']
+            print(id)
+            bike = Bike.query.get(id)
+            
+            print(bike.model)
+
+            bike.brand=request.form['brand']
+            bike.model=request.form['model']
+            bike.cc=int(request.form['cc'])
+            bike.fuel_capacity=int(request.form['fuel_capacity'])
+            bike.engine_type=request.form['engine_type']
+            bike.seat_height=request.form['seat_height']
+            db.session.commit()
             return redirect(url_for('get_items'))
-       
         id = request.args.get("id")
         bike = db.get_or_404(Bike, id)
         return render_template('edit.html', bike = bike)
 
 
 
-    @app.route('/delete', methods=['POST'])
+    @app.route('/delete', methods=['GET'])
     def delete_item():
-        # This route should handle deleting an existing item identified by the given ID.
-        return render_template('index.html', message=f'Item deleted successfully')
+        id = request.args.get("id")
+        bike = db.get_or_404(Bike, id)
+        print(bike)
+        db.session.delete(bike)
+        db.session.commit() 
+        return redirect(url_for('get_items'))
+
+        
 
 

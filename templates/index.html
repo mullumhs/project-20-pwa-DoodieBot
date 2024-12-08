@@ -19,7 +19,11 @@
         <a href="{{ url_for('edit',id = bike.id)}}" class="btn btn-info"
           >Edit</a
         >
-        <a href="#" class="btn btn-outline-success">Deleat</a>
+        <a
+          href="{{ url_for('delete_item',id = bike.id)}}"
+          class="btn btn-outline-danger"
+          >Deleat</a
+        >
       </div>
     </div>
   </div>
