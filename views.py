@@ -71,6 +71,25 @@ def init_routes(app):
         db.session.commit() 
         return redirect(url_for('get_items'))
 
+
+
+    @app.route('/search', methods=['POST'])
+    def search():
+        model = request.form['model']
+        id = request.args.get("id")
+        bike = db.get_or_404(Bike, id)
+
         
+        
+    @app.route('/', methods=['GET'])
+    def get_items():
+        search_query = request.args.get('query')
+    
+        if search_query:
+            items = YourModel.query.filter(YourModel.title.ilike(f'%{search_query}%')).all()
+        else:
+            items = YourModel.query.all()
+        return render_template('index.html', items=items)
+
 
 
