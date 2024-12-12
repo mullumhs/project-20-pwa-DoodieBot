@@ -6,13 +6,18 @@
 <div class="container px-5 my-5">
   <form id="contactForm" method="POST" action="/add">
     <div class="form-floating mb-3">
-      <select class="form-select" id="brand" name="brand" aria-label="Brand">
+      <select
+        class="form-select"
+        id="brand"
+        name="brand"
+        aria-label="Brand"
+      >
         <option value="select">select</option>
-        <option value="Honda">Honda</option>
-        <option value="Yamaha">Yamaha</option>
-        <option value="Suzuki">Suzuki</option>
-        <option value="Kawasaki">Kawasaki</option>
-        <option value="KTM">KTM</option>
+        <option value="Honda">Honda</option required>
+        <option value="Yamaha">Yamaha</option required>
+        <option value="Suzuki">Suzuki</option required>
+        <option value="Kawasaki">Kawasaki</option required>
+        <option value="KTM">KTM</option required>
       </select>
       <label for="brand">Brand</label>
     </div>
